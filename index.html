@@ -80,7 +80,7 @@ body:not(.birthday-unlocked) .countdown-title { font-size:clamp(.8rem,2vw,1rem);
 const title=document.getElementById("countdownTitle");
 // TEST MODE: countdown ends 5 seconds after page load; celebration begins 2 seconds later.
 // For the real birthday, replace this with: new Date(2026, 9, 17, 0, 0, 0)
-const targetDate =  new Date(Date.now() + 5000);
+const targetDate =  new Date(2026, 9, 17, 0, 0, 0);
 function updateTimer(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}title.textContent="Surprise unlock test — almost time!";const d=Math.floor(diff/86400000);diff%=86400000;const h=Math.floor(diff/3600000);diff%=3600000;const m=Math.floor(diff/60000);const sec=Math.floor(diff%60000/1000);[["days",d],["hours",h],["minutes",m],["seconds",sec]].forEach(([id,n])=>document.getElementById(id).textContent=String(n).padStart(2,"0"))}
 updateTimer();setInterval(()=>{updateTimer();checkBirthdayTime()},1000);
 const layer=document.getElementById("sparkles");for(let i=0;i<85;i++){const s=document.createElement("i");s.className="sparkle";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";s.style.setProperty("--dur",2+Math.random()*4+"s");s.style.animationDelay=-Math.random()*5+"s";layer.appendChild(s)}
